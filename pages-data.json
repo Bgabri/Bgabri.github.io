@@ -1,0 +1,47 @@
+[{
+	"type":"image",
+	"image":"image file",
+	"description": "image description",
+	"title": "image title",
+	"link": "image page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+	"largeImage": true
+},
+{
+	"type":"audio",
+	"audio":"audio file",
+	"description": "audio description",
+	"title": "audio title",
+	"link": "audio page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+},
+{
+	"type":"software",
+	"image":"software image file",
+	"video":"video file",
+	"description": "software description",
+	"title": "software title",
+	"link": "software page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+	"itchio":"itchio link",
+	"steam":"steam link",
+	"GitHub":"GitHub link",
+
+},
+{
+	"type":"blog",
+	"image":"blog image file",
+	"description": "image description",
+	"title": "blog title",
+	"link": "blog page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+	"largeImage": true
+}]
