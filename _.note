@@ -1,0 +1,335 @@
+	File system
+	- master
+		- main
+		- feedMain
+		- pages
+			- library
+				- games
+				- Jams
+				- experiments
+			- Dev Logs
+				- game
+					- log ## • dd/MM/yy
+				...
+			- Blog
+				- topic
+					- sub topic
+						- blog • dd/MM/yy
+					- blog • dd/MM/yy
+				...
+			- gallery
+				- images
+				- audio
+
+
+
+blank pallet/assets
+	site
+	main
+		- media links
+			- github
+			- itch.io
+			- discord server???
+		- games - itch.io links
+			- jams [hidden]
+		- feed main - auto generated
+			- latest dev log
+			- latest 3 posts
+			- #blog
+				- development log
+					- #jams
+					- #full releases
+					- #labs 
+				- tutorials
+				- life
+			- #gallery
+				- 
+
+
+		- tags
+	footer 
+		- [hosted with github] (link to repository)
+		- media links
+		- Blog
+		- community/discord link
+	Iframe
+
+
+ode
+code - Roboto mono
+meta data
+	description, tags
+	og:site_name
+	og:locale
+	og:title
+	og:url
+	og:type
+	theme-color
+
+	games/jams/experiments (video.movie)
+		[og:image | og:image:alt]{1+}
+		[og:video]{1+}??
+		<meta name="twitter:card" content="summary_large_image">
+		og:description
+
+	Blog/dev logs
+		[og:image | og:image:alt]
+		og:description
+		article:published_time
+		article:modified_time
+
+	art
+		og:image | og:image:alt {1+}
+		<meta name="twitter:card" content="summary_large_image">
+		[og:description]
+
+	audio
+		og:audio
+		[og:description]
+
+	other pages (website)
+
+
+
+
+
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ,.!?'":;#$%&@|\/+-*^=<>()[]{}_`~αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+
+[{
+	"type":"image",
+	"image":"image file",
+	"description": "image description",
+	"title": "image title",
+	"link": "image page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+	"largeImage": true
+},
+{
+	"type":"audio",
+	"audio":"audio file",
+	"description": "audio description",
+	"title": "audio title",
+	"link": "audio page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+},
+{
+	"type":"software",
+	"image":"software image file",
+	"video":"video file",
+	"description": "software description",
+	"title": "software title",
+	"link": "software page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+	"itchio":""
+
+},
+{
+	"type":"blog",
+	"image":"blog image file",
+	"description": "image description",
+	"title": "blog title",
+	"link": "blog page link",
+	"color": "#000000",
+	"publishTime": "1619151532",
+	"modifiedTime": "1619151532",
+	"largeImage": true
+}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					function findEmbeds() {
+						var embeds = document.getElementsByClassName("embed");
+						for (i = 0; i < embeds.length; i++){
+							loadURL(embeds[i].getAttribute("href"), i);
+						}
+					}
+					function loadURL(url, index) {
+						var xhttp = new XMLHttpRequest();
+						xhttp.onreadystatechange = function() {
+							if (this.readyState == 4 && this.status == 200){
+								return generateEmbed(this, index);
+							} else{
+								document.getElementById("out").innerHTML += this.readyState;
+							}
+						};
+						xhttp.open("GET", url, true);
+						xhttp.send();
+					}
+
+					function generateEmbed(xhttp, index) {
+						var values = getMeta(xhttp);
+						var properties = values[0];
+						var values = values[1];
+						document.getElementById("out").innerHTML += "<br>" + properties + "<br>" + values + "<br>";
+						var embedHtml = document.createElement("div");
+						embedHtml.style = "max-width: 25em; max-height: 25em;"
+
+						var title = document.createElement("h5");
+						// title.class = "#title";
+						title.innerHTML = values[properties.indexOf("og:title")] || values[properties.indexOf("og:site_name")] || "";
+						embedHtml.appendChild(title);
+
+						var description = document.createElement("p");
+						// description.class = "#description";
+						description.innerHTML = values[properties.indexOf("og:description")] || values[properties.indexOf("description")] || "";
+						embedHtml.appendChild(description);
+
+						var typeI = properties.indexOf("og:type");
+						if (typeI != -1){
+							var type = values[typeI]
+							
+							if (type.startsWith("website")){
+
+							} else if (type.startsWith("image")){
+								var img = document.createElement("img");
+								img.src = values[properties.indexOf("twitter:image")];
+								img.style = "max-width: inherit; max-height: inherit;"
+								img.alt = values[properties.indexOf("og:image:alt")];
+								embedHtml.appendChild(img);
+								// var vidValue = values[properties.indexOf("og:image")] || values[properties.indexOf("twitter:image")];
+							} else if (type.startsWith("video")){
+
+								var video = document.createElement("video");
+								// video.class = "#video"
+								video.poster = values[properties.indexOf("og:image")] || values[properties.indexOf("twitter:image")];
+								video.setAttribute("controls","");
+
+								var videoSource = document.createElement("source");
+								// videoSource.src = values[properties.indexOf("twitter:image")];
+								videoSource.src = "test.mp4";
+								// videoSource.type = "video/mp4";
+
+								// video.innerHTML ="AAA";
+
+								video.appendChild(videoSource);
+								embedHtml.appendChild(video);
+
+
+							} else if (type.startsWith("music")){
+
+							} else {
+
+							}
+
+							// var img = document.createElement("img");
+							// var src = document.createAttribute("src");
+							// var alt = document.createAttribute("alt");
+							// src.value = values[imgI];
+							// alt.value = values[properties.indexOf("og:image:alt")];
+							// img.setAttributeNode(src);
+							// img.setAttributeNode(alt);
+							// embedHtml.appendChild(img);
+						}
+						document.getElementsByClassName("embed")[index].innerHTML = "";
+						document.getElementsByClassName("embed")[index].appendChild(embedHtml);
+						// document.getElementById("content").appendChild(embedHtml);
+						return embedHtml;
+					}
+
+					function getMeta(xhttp){
+						var metaValues = String(xhttp.responseText);
+						metaValues = metaValues.replace(/\<body\>(.|\s)*\<\/body\>/gim, "");
+						metaValues = metaValues.replace(/(\<head\>)|(\<\/head\>)/im, "");
+						metaValues = metaValues.match(/\<meta.*\>/img);
+						validProperties = [];
+						validValues = [];
+						if(Array.isArray(metaValues)){
+							for (i = 0; i < metaValues.length; i++){
+								var property = String(metaValues[i].match(/property\=\"[^\"]*\"/i));
+								var name = String(metaValues[i].match(/name\=\"[^\"]*\"/i));
+
+								var content = String(metaValues[i].match(/content\=\"[^\"]*\"/i));
+								if (content){
+									// document.getElementById("out").innerHTML += (name ) +"<br>";
+									if (property != "null"){
+										validProperties.push(property.slice(10, -1));
+										validValues.push(content.slice(9, -1));
+									} else if (name != "null"){
+										validProperties.push(name.slice(6, -1));
+										validValues.push(content.slice(9, -1));
+									}
+								}
+							}
+						}
+						return [validProperties, validValues];
+					}
+				</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+			function generateEmbeds() {
+				temp(loadJSON());
+			}
+			function temp(data) {
+				// document.getElementById("out").innerHTML += "a";
+				document.getElementById("out").innerHTML += data.firstName;
+			}
+
+			function loadJSON() {
+
+				var url = "https://tools.learningcontainer.com";
+				var jsonFile = new XMLHttpRequest();
+					jsonFile.open("GET",url,true);
+					jsonFile.send();
+
+					jsonFile.onreadystatechange = function() {
+						if (jsonFile.readyState== 4 && jsonFile.status == 200) {
+							document.getElementById("out").innerHTML += "<br>" + jsonFile.responseText + "<br>";
+							// document.getElementById("id-of-element").innerHTML = jsonFile.responseText;
+						}
+					 }
+				// var xhttp = new XMLHttpRequest();
+				// // xhttp.overrideMimeType("application/json");
+				// xhttp.onreadystatechange = function() {
+				// 	document.getElementById("out").innerHTML += this.readyState;
+				// 	if (this.readyState === 4){
+				// 		if (this.status == 200 || this.status == 0){
+				// 			// document.getElementById("out").innerHTML += "data";
+				// 			// var taa = '{"name":"John", "age":31, "city":"New York"}';
+				// 			// var data = JSON.parse(this.responseText);
+				// 			var data = this.responseText;
+				// 			document.getElementById("out").innerHTML += "<br>" + data.length + "<br>";
+				// 			temp(data);
+				// 		}
+				// 	}
+				// }
+
+				// xhttp.open("GET", "https://tools.learningcontainer.com", true);
+				// xhttp.send();
+			}
+		</script>
