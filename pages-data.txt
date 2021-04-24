@@ -17,7 +17,7 @@
 	"link": "audio page link",
 	"color": "#000000",
 	"publishTime": "1619151532",
-	"modifiedTime": "1619151532",
+	"modifiedTime": "1619151532"
 },
 {
 	"type":"software",
@@ -31,7 +31,7 @@
 	"modifiedTime": "1619151532",
 	"itchio":"itchio link",
 	"steam":"steam link",
-	"GitHub":"GitHub link",
+	"GitHub":"GitHub link"
 
 },
 {
