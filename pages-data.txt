@@ -1,6 +1,6 @@
 [{
 	"type":"image",
-	"image":"image file",
+	"image":"100x100.png",
 	"description": "image description",
 	"title": "image title",
 	"link": "image page link",
@@ -12,6 +12,7 @@
 {
 	"type":"audio",
 	"audio":"audio file",
+	"image":"600x600.png",
 	"description": "audio description",
 	"title": "audio title",
 	"link": "audio page link",
@@ -20,7 +21,7 @@
 	"modifiedTime": "1619151532"
 },{
 	"type":"software",
-	"image":"software image file",
+	"image":"300x300.png",
 	"video":"video file",
 	"description": "software description",
 	"title": "software title",
@@ -33,7 +34,7 @@
 	"GitHub":"GitHub link"
 },{
 	"type":"blog",
-	"image":"blog image file",
+	"image":"300x600.png",
 	"description": "image description",
 	"title": "blog title",
 	"link": "blog page link",
@@ -43,7 +44,7 @@
 	"largeImage": true
 },{
 	"type":"software",
-	"image":"software image file",
+	"image":"600x300.png",
 	"video":"video file",
 	"title": "software title",
 	"link": "software page link",
