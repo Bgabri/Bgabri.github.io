@@ -1,27 +1,29 @@
+* {
+	/*box-sizing: border-box;*/
+	font-family: "Calibri";
+	font-size: 1rem;
+}
+
 body {
 	background-color: #CDD1D8;
 	margin: 0;
 }
 
-* {
-	font-family: "Calibri";
-	/*font-family: "Arial";*/
-	/*display:inline-block;*/
-	font-size: 1rem;
-}
 
 #container {
-	max-width: 50em;
-	margin: 0em auto;
+	display: grid;
+	grid-template-columns: 1fr minmax(auto, 53em) 1fr;
+	grid-template-areas: 
+		'. header .'
+		'sideNav content .'
+		'. footer .';
 }
 
 #header {
-	background-color: #F8F6FD;
+	z-index: 100;
+	grid-area: header;
+	background-color: #eee;
 	padding: 1em 2em;
-	overflow: hidden;
-	/*box-shadow: 0em 1em 3em -.2em #f00;*/
-	top: 0;
-	position: sticky;
 }
 
 #header img {
@@ -30,91 +32,48 @@ body {
 	top: .5em;
 }
 
-#header ul, .linkList {
-	margin: auto;
-	padding: 0em;
+#sideNav ul, #footer ul, .linkList {
+	margin: 0;
+	padding: 0;
 	list-style-type: none;
 }
-#header ul li, .linkList li {
+
+.linkList li {
+	margin-left: .5em;
 	display: inline;
-	margin-left: .55em;
-	text-align: center;
+}
+
+#sideNav {
+	grid-area: sideNav;
+	padding: .5em 2em;
+	margin-left: auto;
+	/*top: 3em;*/
+	/*position: fixed;*/
 }
 
 #content {
-	background-color: #EDEAE8;
+	grid-area: content;
+	background-color: #fdd;
 	padding: 2em;
 }
 
-#side-bar {
-	position: fixed;
-}
 
 #footer {
-	background-color: #F8F6FD;
+	grid-area: footer;
+	background-color: #eee;
 	padding: 1em 2em;
-	height: 5em;
-}
-
-#footer ul {
-	margin: auto;
-	list-style-type: none;
 }
 
 #up img {
 	position: fixed;
 	height: 1em;
 	width: 1em;
-	/*top: 3em;*/
 	right: 3em;
-	bottom: 3em;
-}
-
-#sideBar {
-
-}
-
-.embed {
-	border: 2px solid #FF133A;
-	border-radius: 0.5em;
-	margin: 1em;
-	padding: 0.5em 0.5em;
-	display: inline-block;
-}
-
-.embed .title {
-	margin: 0em;
-	background-color: #EDEAE8;
-	position: relative;
-	bottom: 1.25em;
-	display: inline-block;
-}
-
-.embed .title h5 {
-	margin: 0em;
-	background-color: #EDEAE8;
-	padding: 0em 0.5em;
-}
-
-.embed .description {
-	margin: 0em;
-	padding: 0em;
-	text-indent: 0em;
-}
-
-.embed span {
-	text-align: right;
-	width: 100%;
-	display: block;
-	font-size: 0.8em;
-	font-style: italic;
-	/*float: left;*/
+	bottom: 1em;
 }
 
 .center {
-	/*width: 50%;*/
 	margin: auto auto;
-	/*float: center;*/
 	display: block;
 }
 
@@ -126,20 +85,10 @@ body {
 	float: right;
 }
 
-
 .logo {
 	/*filter: hue-rotate(150deg) saturate(78%) brightness(100%);*/
 	width: 2em;
 	height: 2em;
-}
-
-img {
-	display: inline-block;
-	/*display: block;*/
-}
-
-div {
-	display: block;
 }
 
 a {
@@ -195,19 +144,19 @@ h4 {
 
 h5 {
 	font-size: 1em;
-	margin: 1em auto 0em auto;
+	margin: 1em auto 0 auto;
 }
 
 h6 {
 	font-size: 1em;
-	margin: 1em auto 0em auto;
+	margin: 1em auto 0 auto;
 	color: #555;
 }
 
 p {
-	margin: 0em;
+	margin: 0;
 	margin-bottom: .3em;
-	text-indent: 0em;
+	text-indent: 0;
 }
 div p:nth-child(n+2) {
  	margin-bottom: .3em;
@@ -224,7 +173,7 @@ div p:nth-child(n+2) {
 	position: absolute;
 	left: .2em;
 	background-color: #F8F6FD;
-	box-shadow: 0em .5em 1em 0em #00000077;
+	box-shadow: 0 .5em .7em 0 #00000077;
 	padding: .3em;
 	border-radius: .33em;
 }
@@ -237,15 +186,17 @@ code {
 	font-family: "roboto mono";
 	font-size: 13px;
 	background-color: #CDD1D8;
-	display: inherit;
-	overflow-x: auto;
-	padding: .8em;
-	margin:1em 0em;
-	border-radius: .2em;
-	border: .2em solid #828086;
-	border-bottom: .2em solid #F8F6FD;
-	border-right: .2em solid #F8F6FD;
-	box-shadow: 1.9em 2.3em 3.1em -3.3em inset;
+	display: block;
+	/*overflow-x: scroll;*/
+	max-width: 53em;
+	padding: .5em;
+	margin: .5em 0;
+	border-radius: 3px;
+	border: 2.5px solid #828086;
+	border-bottom: 2.5px solid #F8F6FD;
+	border-right: 2.5px solid #F8F6FD;
+	/*box-shadow: 1.9em 2.3em 3.1em -3.3em inset;*/
+	box-shadow: 0 2em 1.3em -2em inset, 2em 0 1.3em -2em inset;
 }
 
 /*
@@ -320,3 +271,36 @@ code .vc {color: #19177C;} /* Name.Variable.Class */
 code .vg {color: #19177C;} /* Name.Variable.Global */
 code .vi {color: #19177C;} /* Name.Variable.Instance */
 code .il {color: #666666;} /* Literal.Number.Integer.Long */
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 40em) {
+	#container {
+		grid-template-columns: 100%;
+		grid-template-areas: 
+			'header'
+			'sideNav' 
+			'content'
+			'footer';
+	}
+	#sideNav {
+		/*width: 100%;*/
+		margin: auto;
+	}
+	#sideNav ul li {
+		margin-left: .5em;
+		display: inline;
+	}
+
+	#up img {
+		position: sticky;
+		right: 1em;
+		bottom: 1em;
+	}
+
+	.linkList li {
+		margin-left: .3em;
+		display: inline;
+	}
+}
+personal ethics/morals
+procastination/ getting things done
