@@ -1,2 +1,3 @@
-# [Bgabri.github.io](Bgabri.github.io)
-my site (still under development)
+# Bgabri.github.io
+my corner of the web
+Currently only contains a gallery of my pixel art
