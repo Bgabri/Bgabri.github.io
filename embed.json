@@ -1,3 +1,7 @@
 {
-    "author_name": "Commisions open!"
+    "author_name": "Commisions open!",
+    "image": {
+        "url" : "https://bgabri.github.io/assets/Card.png",
+        "url" : "https://bgabri.github.io/assets/gallery.png"
+    }
  }
