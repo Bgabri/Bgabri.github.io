@@ -40,6 +40,12 @@
 					</ul>
 				</div>
 			</div>
+			<img id="footerImg" src="assets/footer_0.png">
+			<script>
+				var randomI = Math.floor(Math.random()*7);
+				var img = document.getElementById("footerImg");
+				img.setAttribute("src", "assets/footer_"+randomI+".png")
+			</script>
 		</div>
 	</body>
 </html>

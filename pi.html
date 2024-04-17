@@ -1,15 +1,75 @@
-<!DOCTYPE>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>pi!</title>
+		<link rel="icon" href="temp-pfp.svg" type="image/svg+xml">
+		<link rel="stylesheet" href="style.css" type="text/css">
+        <style>
+            canvas#webgl { width:50%; height:100%;} 
+        </style>
+	</head>
+	<body>
+		<a href="#top"></a>
+		<div id="container">
+			<div id="header">
+				<a href="index"><img src="temp-pfp.svg" alt="⌂" class="logo"><span style="margin-left: 2.3em;">Bgabri</span></a>
+				<ul class="linkList right">
+				<li><a>Home</a></li>
+				<li><a>Library</a></li>
+				<li><a>Feed</a></li>
+				<li><a>Dev Logs</a></li>
+				<li><a>Blog</a></li>
+				<li><a href="index.html">Gallery</a></li>
+				</ul>
+			</div>
+			<div id="content">
+                <h1>Colliding Pi</h1>
+
+                <div id="pi">
+                    <canvas id="webgl"></canvas>
+                    <script type="text/javascript" src="piWebGL.js"></script>
+                </div>
+                A simple demo which calculates pi using two colliding blocks, for a detailed insight check out 3b1b's <a style="text-decoration:underline;" href="https://www.youtube.com/watch?v=jsYwFizhncE">video</a>.
+
+                <b>Warning:</b> the demo may temporally freeze with larger values of pi.
+                <h6>Controls</h6>
+                space/p: pause/play demo
+                <br>
+                slider: the precision of pi to calculate
+			</div>
+			<div id="footer">
+				<a id="up" href="#top"><img src="up-arrow.svg" alt="up"></a>
+				<div class="left"><span style="color: #FA4688;">@Bgabri</span><br>
+					<ul class="left linkList" style="width:7.2em;">
+					<li style="margin-left: 0em; padding: 0em"><a href="https://github.com/Bgabri" target="_blank"><img src="GitHub-Mark-Black.svg" alt="GitHub" class="logo"></a></li><li><a href="https://bgabri.itch.io" target="_blank"><img src="itchio-Mark-Black.svg" alt="itch.io" class="logo"></a></li><li class="toolTip"><img src="Discord-Mark-Black.svg" alt="Discord" class="logo"><span class="toolTip-content">Bgabri#6549</span></li>
+					</ul><br>
+					Hosted with <a href="https://github.com/Bgabri/Bgabri.github.io" target="_blank"><img src="GitHub-Logo-Black.svg" alt="GitHub" height="13"></a>
+				</div>
+				<div class="right" style="margin-top:0em">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a>Library</a></li>
+						<li><a>Feed</a></li>
+						<li><a>Blog</a></li>
+					</ul>
+				</div>
+			</div>
+            <img id="footerImg" src="assets/footer_0.png">
+			<script>
+				var randomI = Math.floor(Math.random()*7);
+				var img = document.getElementById("footerImg");
+				img.setAttribute("src", "assets/footer_"+randomI+".png")
+			</script>
+		</div>
+	</body>
+</html>
+<!-- <!DOCTYPE>
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>Hello Heaps</title>
-    <style>
-        body { margin:25%;padding:0;margin: auto auto;background-color:black; }
-        canvas#webgl { width:100%; height:100%;} 
-    </style>
+    <title>pi!</title>
 </head>
 <body>
-    <canvas id="webgl"></canvas>
-    <script type="text/javascript" src="piWebGL.js"></script>
+
 </body>
-</html>
+</html> -->

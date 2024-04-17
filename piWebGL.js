@@ -263,7 +263,7 @@ Game.prototype = $extend(hxd_App.prototype,{
 		tf.set_text(label);
 		tf.set_maxWidth(70);
 		tf.set_textAlign(h2d_Align.Right);
-		var sli = new h2d_Slider(100,10,f);
+		var sli = new h2d_Slider(100,6,f);
 		sli.set_minValue(min);
 		sli.set_maxValue(max);
 		sli.set_value(get());
@@ -708,8 +708,8 @@ PI.prototype = $extend(Game.prototype,{
 		this.piBody1 = this.factory.makeCube(h3d_mat_Texture.fromColor(16711680));
 		this.piBody2 = this.factory.makeCube(h3d_mat_Texture.fromColor(255));
 		this.setupSim(this.numOfDigits);
-		this.addSlider("digits of Pi",$bind(this,this.get_numOfDigits),$bind(this,this.setupSim),1,9);
-		this.counter = this.addText("0");
+		this.addSlider("digits of pi",$bind(this,this.get_numOfDigits),$bind(this,this.setupSim),1,9);
+		this.counter = this.addText(" pi: 0");
 		var cube = this.factory.makeCube();
 		cube.scaleX = 20;
 		var f = 1;
@@ -891,7 +891,7 @@ PI.prototype = $extend(Game.prototype,{
 					_this1.flags &= ~f1;
 				}
 				var ss = this.current[3];
-				this.counter.set_text("" + ss);
+				this.counter.set_text(" pi: " + ss);
 			}
 		}
 	}

@@ -64,11 +64,16 @@ body {
 	/* height: 318px; */
 }
 
-canvas {
+#galleryTrain canvas {
 	position: relative;
 	width: 100% !important;
 	height: 318px !important;
 	top:-24px;
+}
+
+#pi canvas {
+	width:  100% !important;
+	height: 100% !important;
 }
 
 
@@ -171,7 +176,7 @@ canvas {
 a {
 	font-size: inherit;
 	color: #000; 
-	text-decoration: none;
+	text-decoration:underline;
 }
 
 
@@ -184,11 +189,10 @@ a:hover, .defaultLinks a:hover {
 
 a:active, .defaultLinks a:active {
 	font-size: inherit;
-	text-decoration: underline;
 }
 
 .defaultLinks a{
-	color: blue;
+	color: rgb(30, 84, 192);
 }
 .defaultLinks a:visited{
 	color: purple;
@@ -233,7 +237,7 @@ h6 {
 p {
 	margin: 0;
 	margin-bottom: .3em;
-	text-indent: 0;
+	text-indent: 10em;
 }
 div p:nth-child(n+2) {
  	margin-bottom: .3em;
