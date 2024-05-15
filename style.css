@@ -71,11 +71,35 @@ body {
 	top:-24px;
 }
 
-#pi canvas {
+#webglContainer canvas {
 	width:  100% !important;
-	height: 100% !important;
+	border:  #858585 1px solid;
+	border-radius: 2px;
 }
 
+#webglContainer textarea {
+	width:  100%;
+	white-space: pre;
+	overflow-wrap: normal;
+	overflow-x: scroll;
+	font-family:monospace;
+	padding: 8px;
+	border:  #858585 1px solid;
+	border-radius: 2px;
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		    box-sizing: border-box;
+	-moz-tab-size : 4;
+	  -o-tab-size : 4;
+	     
+}
+
+.horizontal {
+	display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 2px;
+}
 
 #beltTop {
 	position:absolute;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>pi!</title>
+		<title>editor</title>
 		<link rel="icon" href="temp-pfp.svg" type="image/svg+xml">
 		<link rel="stylesheet" href="style.css" type="text/css">
         <style>
@@ -23,19 +23,62 @@
 				</ul>
 			</div>
 			<div id="content">
-                <h1>Colliding Pi</h1>
+                <h1>Text-Based 3D Object Editor</h1>
 
-                <div id="webglContainer">
-                    <canvas id="webgl"></canvas>
-                    <script type="text/javascript" src="piWebGL.js"></script>
+                <div id="webglContainer" class="horizontal">
+                    <div class="horizontal-child">
+                        <textarea id="editorBox" rows = "30">
+[
+{
+    "_class": "Base",
+    "props": {
+        "pos": {
+            "z": -0.5
+        },
+        "scale": {
+            "x": 10,
+            "y": 10
+        },
+        "material": {
+            "color": {
+                "b": 0.54,
+                "g": 0.85,
+                "r": 0.18
+            },
+            "metalness": 0.3,
+            "roughness": 0.8
+        }
+    },
+    "_id": 0
+},
+{
+    "_class": "Model",
+    "props": {
+        "src": "wiredCube.fbx",
+        "pos": {
+            "z": 0.6
+        },
+        "scale": {
+            "x": 0.5,
+            "y": 0.5,
+            "z": 0.5
+        },
+        "material": {
+            "metalness": 1,
+            "roughness": 0.2
+        }
+    },
+    "_id": 1
+}
+]
+                        </textarea>
+                    </div>
+                    <div class="horizontal-child">
+                        <canvas id="webgl"></canvas>
+                        <script type="text/javascript" src="editorWebGL.js"></script>
+                    </div>
                 </div>
-                A simple demo which calculates pi using two colliding blocks, for a detailed insight check out 3b1b's <a style="text-decoration:underline;" href="https://www.youtube.com/watch?v=jsYwFizhncE">video</a>.
-
-                <b>Warning:</b> the demo may temporally freeze with larger values of pi.
-                <h6>Controls</h6>
-                space/p: pause/play demo
-                <br>
-                slider: the precision of pi to calculate
+                
 			</div>
 			<div id="footer">
 				<a id="up" href="#top"><img src="up-arrow.svg" alt="up"></a>
