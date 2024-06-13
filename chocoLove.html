@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Choco Love</title>
+		<link rel="icon" href="temp-pfp.svg" type="image/svg+xml">
+		<link rel="stylesheet" href="style.css" type="text/css">
+        <style>
+            canvas#webgl { width:50%; height:100%;} 
+        </style>
+	</head>
+	<body>
+		<a href="#top"></a>
+		<div id="container">
+			<div id="header">
+				<a href="index"><img src="temp-pfp.svg" alt="⌂" class="logo"><span style="margin-left: 2.3em;">Bgabri</span></a>
+				<ul class="linkList right">
+				<li><a>Home</a></li>
+				<li><a>Library</a></li>
+				<li><a>Feed</a></li>
+				<li><a>Dev Logs</a></li>
+				<li><a>Blog</a></li>
+				<li><a href="index.html">Gallery</a></li>
+				</ul>
+			</div>
+			<div id="content">
+                <h1>Choco Love</h1>
+                
+                <div id="webglContainer">
+                    <canvas id="webgl"></canvas>
+                    <script type="text/javascript">(function(){
+                        var canvas = document.getElementById('webgl'), ctx;
+                        var DoExecute = function()
+                        {
+                            Module.canvas = canvas.cloneNode(false);
+                            Module.canvas.oncontextmenu = function(e) { e.preventDefault() };
+                            Module.setWindowTitle = function(title) { };
+                            Module.postRun = function()
+                            {
+                                if (!Module.noExitRuntime) { Fail(); return; }
+                                canvas.parentNode.replaceChild(Module.canvas, canvas);
+                                Txt = Msg = ctx = canvas = null;
+                                Module.canvas.focus();
+                            };
+                            setTimeout(function() { Module.run(['/p']); }, 50);
+                        };
+                        var DoLoad = function()
+                        {
+                            // window.onerror = function(e,u,l) { Fail(e+'<br>('+u+':'+l+')'); };
+                            Module = { TOTAL_MEMORY: 1024*1024*24, TOTAL_STACK: 1024*1024*2, currentScriptUrl: '-', preInit: DoExecute };
+                            var s = document.createElement('script'), d = document.documentElement;
+                            s.src = 'game.js';
+                            s.async = true;
+                            s.onerror = function(e) { d.removeChild(s); Msg("something went wrong"); canvas.disabled = false; };
+                            d.appendChild(s);
+                        };
+
+                        canvas.oncontextmenu = function(e) { e.preventDefault() };
+                        ctx = canvas.getContext('2d');
+                        ctx.font = '30px sans-serif';
+                        ctx.textAlign = 'center';
+                        DoLoad();
+                        })()</script>
+                </div>
+                A small puzzle game written in 3 dayss for the <a href="https://itch.io/jam/love2d-jam-2021">LÖVE 2021 game jam</a> with the given theme of 'Chocolate'.
+                It was packaged using the <a href="https://schellingb.github.io/LoveWebBuilder">LÖVE Web Builder</a>, and the source code is available on <a href="https://github.com/Bgabri/chocoLove">GitHub</a>.
+                <h6>Controls</h6>
+                arrows/wasd: move
+                <br>
+                r: reset level
+			</div>
+			<div id="footer">
+				<a id="up" href="#top"><img src="up-arrow.svg" alt="up"></a>
+				<div class="left"><span style="color: #FA4688;">@Bgabri</span><br>
+					<ul class="left linkList" style="width:7.2em;">
+					<li style="margin-left: 0em; padding: 0em"><a href="https://github.com/Bgabri" target="_blank"><img src="GitHub-Mark-Black.svg" alt="GitHub" class="logo"></a></li><li><a href="https://bgabri.itch.io" target="_blank"><img src="itchio-Mark-Black.svg" alt="itch.io" class="logo"></a></li><li class="toolTip"><img src="Discord-Mark-Black.svg" alt="Discord" class="logo"><span class="toolTip-content">Bgabri#6549</span></li>
+					</ul><br>
+					Hosted with <a href="https://github.com/Bgabri/Bgabri.github.io" target="_blank"><img src="GitHub-Logo-Black.svg" alt="GitHub" height="13"></a>
+				</div>
+				<div class="right" style="margin-top:0em">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a>Library</a></li>
+						<li><a>Feed</a></li>
+						<li><a>Blog</a></li>
+					</ul>
+				</div>
+			</div>
+            <img id="footerImg" src="assets/footer_0.png">
+			<script>
+				var randomI = Math.floor(Math.random()*7);
+				var img = document.getElementById("footerImg");
+				img.setAttribute("src", "assets/footer_"+randomI+".png")
+			</script>
+		</div>
+	</body>
+</html>
+<!-- <!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>pi!</title>
+</head>
+<body>
+
+</body>
+</html> -->

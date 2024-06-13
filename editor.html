@@ -48,13 +48,12 @@
             "metalness": 0.3,
             "roughness": 0.8
         }
-    },
-    "_id": 0
+    }
 },
 {
     "_class": "Model",
     "props": {
-        "src": "wiredCube.fbx",
+        "src": "Icosahedron.fbx",
         "pos": {
             "z": 0.6
         },
@@ -62,13 +61,27 @@
             "x": 0.5,
             "y": 0.5,
             "z": 0.5
+        }, 
+        "rotation": {
+            "x": 0.7954
         },
         "material": {
+            "color": {
+                "r": 1
+            },
             "metalness": 1,
-            "roughness": 0.2
+            "roughness": 0
         }
-    },
-    "_id": 1
+    }
+},
+{
+    "_class": "Model",
+    "props": {
+        "src": "wiredCube.fbx",
+        "pos": {
+            "z": 0.6
+        }
+    }
 }
 ]
                         </textarea>
@@ -78,7 +91,14 @@
                         <script type="text/javascript" src="editorWebGL.js"></script>
                     </div>
                 </div>
-                
+                A text-based 3D object editor, it can be used to modify any haxe object property.
+                <h4>Usage</h4>
+                Modify any of the value in the text box area above adhering to the json format. The mouse can be used to navigate around the created environment.
+
+                <h6>Class property</h6>
+                This demo only supports two classes
+
+
 			</div>
 			<div id="footer">
 				<a id="up" href="#top"><img src="up-arrow.svg" alt="up"></a>
